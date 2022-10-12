@@ -37,12 +37,11 @@ passport.use(
         // console.log("Current user is ", currentUser);
         // done(null, currentUser);
       }
-
-      const newUser = await new User({
-        googleId: profile.id,
-        username: profile.displayName,
-        picture: profile._json.picture,
-      }).create();
+const newUser = await User.create({
+  googleId: profile.id,
+  username: profile.displayName,
+  picture: profile._json.picture,
+});
       console.log(`new user created ${newUser}`);
       done(null, newUser);
     }

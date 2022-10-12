@@ -15,6 +15,25 @@ module.exports = (sequelize, Sequelize) => {
     quantity: {
       type: Sequelize.INTEGER,
     },
+
+    apartmentName: {
+      type: Sequelize.STRING,
+    },
+    state: {
+      type: Sequelize.STRING,
+    },
+    numberOfRooms: {
+      type: Sequelize.INTEGER,
+    },
+    address: {
+      type: Sequelize.STRING,
+    },
+    amountPerNight: {
+      type: Sequelize.INTEGER,
+    },
+    numberOfNights: {
+      type: Sequelize.INTEGER,
+    },
   });
   return book;
 };

@@ -1,15 +1,21 @@
 const dotenv = require("dotenv");
 dotenv.config();
 const express = require("express");
+const morgan = require('morgan')
 const authRoutes = require("./router/auth.routes");
 const profileRoutes = require("./router/profile.routes");
 const passportSetup = require("./config/passport-setup");
+const shortletsRoutes = require('./router/shortlets.routes');
+const userRoutes = require('./router/user.routes');
+
 // const keys = require("./config/keys");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 const app = express();
 
 app.set("view engine", "ejs");
+app.use(morgan("dev"));
+app.use (express.json());
 
 app.use(
   cookieSession({
@@ -40,7 +46,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/auth", authRoutes);
+app.use("/user", userRoutes);
 app.use("/profile", profileRoutes);
+app.use("/shortlets", shortletsRoutes);
 
 app.get("/", (req, res) => {
   res.render("home");

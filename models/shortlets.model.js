@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, Sequelize) => {
-  const shortlets= sequelize.define("shortlets", {
+  const Shortlets= sequelize.define("shortlets", {
     id: {
       type: Sequelize.INTEGER,
       unique: true,
@@ -19,18 +19,18 @@ module.exports = (sequelize, Sequelize) => {
     address: {
       type: Sequelize.STRING,
     },
-    paymentPerNight: {
+    amountPerNight: {
       type: Sequelize.INTEGER,
     },
     numberOfNights: {
       type: Sequelize.INTEGER,
     },
-    duration: {
+    image: {
       type: Sequelize.STRING,
-    },
+    }
   });
 
-  return shortlets;
+  return Shortlets;
 };
 
 
